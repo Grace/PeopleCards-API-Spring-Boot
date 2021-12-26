@@ -1,0 +1,111 @@
+<html>
+<head>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/skeleton.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+
+<style>
+  div.card-outline {
+    outline-style: solid;
+    outline-color: #dcdcdc;
+    outline-width: 1px;
+    padding: 10px;
+  }
+</style>
+
+<body>
+  <script>
+    $(document).ready(function() {
+
+      let employeesAPIUrl = 'http://127.0.0.1:8080/api/employees';
+
+      $.getJSON( employeesAPIUrl, function( data ) {
+        let employees = data;
+        console.log(employees);
+
+        let cardCount = 4;
+        for(let i = 0; i < cardCount; i++) {
+          let cardId = i+1;
+          if(employees.length > i) {
+            console.log(employees[i]);
+            $('#' + cardId + 'Name').val(employees[i]['name'])
+            $('#' + cardId + 'Notes').text(employees[i]['notes'])
+          }
+        }
+      });
+    });
+  </script>
+
+<!-- .container is main centered wrapper -->
+<div class="container">
+
+  <br/>
+
+  <!-- columns should be the immediate child of a .row -->
+  <div class="row">
+    <div class="twelve columns">
+      <h1>People Card Deck</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns card-outline">
+      <h4>1st Card</h4>
+      <label for="1Name">Name</label>
+      <input class="u-full-width" type="text" placeholder="Worker Name" id="1Name">
+      <label for="1Notes">Notes</label>
+      <textarea class="u-full-width" placeholder="Type notes here..." id="1Notes"></textarea>
+      <!-- <input class="button-primary" type="submit" value="Save State"> -->
+    </div>
+
+    <div class="six columns card-outline">
+      <h4>2nd Card</h4>
+      <label for="2Name">Name</label>
+      <input class="u-full-width" type="text" placeholder="Worker Name" id="2Name">
+      <label for="2Notes">Notes</label>
+      <textarea class="u-full-width" placeholder="Type notes here..." id="2Notes"></textarea>
+      <!-- <input class="button-primary" type="submit" value="Save State"> -->
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="six columns card-outline">
+      <h4>3rd Card</h4>
+      <label for="3Name">Name</label>
+      <input class="u-full-width" type="text" placeholder="Worker Name" id="3Name">
+      <label for="3Notes">Notes</label>
+      <textarea class="u-full-width" placeholder="Type notes here..." id="3Notes"></textarea>
+      <!-- <input class="button-primary" type="submit" value="Save State"> -->
+    </div>
+
+    <div class="six columns card-outline">
+      <h4>4th Card</h4>
+      <label for="4Name">Name</label>
+      <input class="u-full-width" type="text" placeholder="Worker Name" id="4Name">
+      <label for="4Notes">Notes</label>
+      <textarea class="u-full-width" placeholder="Type notes here..." id="4Notes"></textarea>
+      <!-- <input class="button-primary" type="submit" value="Save State"> -->
+    </div>
+  </div>
+
+<!--  <br/>-->
+
+<!--  <div class="row">-->
+<!--    <div class="six columns">-->
+<!--      <input class="button-primary" type="submit" value="Save to Excel Sheet">-->
+<!--      <input class="button-primary" type="submit" value="Save to Database">-->
+<!--    </div>-->
+<!--  </div>-->
+
+</div>
+
+<!-- Note: columns can be nested, but it's not recommended since Skeleton's grid has %-based gutters, meaning a nested grid results in variable with gutters (which can end up being *really* small on certain browser/device sizes) -->
+
+</body>
+</html>
