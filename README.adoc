@@ -15,7 +15,7 @@ options, and download a bundled up project as a zip file.
 == What We're Building
 
 Using this project as a reference for your own, will build a web application with Spring Boot that serves a simple API (sans database), a static webpage that consumes it,
-and you will use CORS to let the same webpage running outside of Spring Boot on a different port (thanks Python!) consume the API.
+and you will use CORS to let the same webpage running outside of Spring Boot on a different port (thanks Python web server!) consume the API.
 The 2nd method emulates creating a blackbox API that can be consumed by other web applications running on localhost port 8000.
 
 Note: This project is based on one of the Spring Boot tutorial projects. Language in this file is borrowed from Spring.
@@ -42,12 +42,12 @@ NOTE: You can also fork the project from Github and open it in your IDE or other
 == Create a Simple Web Application
 
 Now you can create a web controller for a simple web application, as the following listing
-(from `src/main/java/com/example/springboot/HelloController.java`) shows:
+(from `src/main/java/com/example/springboot/EmployeeController.java`) shows:
 
 ====
 [source,java]
 ----
-include::initial/src/main/java/com/example/springboot/HelloController.java[]
+include::initial/src/main/java/com/example/springboot/EmployeeController.java[]
 ----
 ====
 
@@ -371,7 +371,7 @@ From a different terminal window, run the following curl command (shown with its
 [source,bash]
 ----
 $ curl localhost:8080
-Hello, World!
+[You'll see the HTML for index.html here...]
 ----
 ====
 
